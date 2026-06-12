@@ -98,7 +98,7 @@ export default function Projects() {
       <section className="py-20 md:py-28 bg-primary text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">Impressed by Our Work?</h2>
-          <p className="text-xl text-gray-300 mb-8">
+          <p className="text-xl text-white/90 mb-8">
             Let us bring your vision to life with the same expertise and dedication.
           </p>
           <a href="/contact" className="btn-primary">

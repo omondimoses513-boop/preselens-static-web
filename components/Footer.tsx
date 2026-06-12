@@ -10,7 +10,7 @@ export default function Footer() {
           {/* Company Info */}
           <div>
             <h3 className="text-lg font-bold mb-4">Praecellens</h3>
-            <p className="text-gray-300 text-sm leading-relaxed">
+            <p className="text-white/80 text-sm leading-relaxed">
               Engineering excellence for Kenya&apos;s infrastructure development.
             </p>
           </div>
@@ -20,22 +20,22 @@ export default function Footer() {
             <h4 className="text-lg font-bold mb-4">Quick Links</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/" className="text-gray-300 hover:text-white transition-colors">
+                <Link href="/" className="text-white/80 hover:text-white transition-colors">
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="text-gray-300 hover:text-white transition-colors">
+                <Link href="/about" className="text-white/80 hover:text-white transition-colors">
                   About
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="text-gray-300 hover:text-white transition-colors">
+                <Link href="/services" className="text-white/80 hover:text-white transition-colors">
                   Services
                 </Link>
               </li>
               <li>
-                <Link href="/projects" className="text-gray-300 hover:text-white transition-colors">
+                <Link href="/projects" className="text-white/80 hover:text-white transition-colors">
                   Projects
                 </Link>
               </li>
@@ -47,16 +47,16 @@ export default function Footer() {
             <h4 className="text-lg font-bold mb-4">Services</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <span className="text-gray-300">Civil Engineering</span>
+                <span className="text-white/80">Civil Engineering</span>
               </li>
               <li>
-                <span className="text-gray-300">Structural Design</span>
+                <span className="text-white/80">Structural Design</span>
               </li>
               <li>
-                <span className="text-gray-300">Mechanical Engineering</span>
+                <span className="text-white/80">Mechanical Engineering</span>
               </li>
               <li>
-                <span className="text-gray-300">Energy Solutions</span>
+                <span className="text-white/80">Energy Solutions</span>
               </li>
             </ul>
           </div>
@@ -64,7 +64,7 @@ export default function Footer() {
           {/* Contact */}
           <div>
             <h4 className="text-lg font-bold mb-4">Contact</h4>
-            <ul className="space-y-2 text-sm text-gray-300">
+            <ul className="space-y-2 text-sm text-white/80">
               <li>Email: info@praecellens.ke</li>
               <li>Phone: +254 20 XXXX XXXX</li>
               <li>Nairobi, Kenya</li>
@@ -75,14 +75,14 @@ export default function Footer() {
         {/* Divider */}
         <div className="border-t border-white/20 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-300 text-sm">
+            <p className="text-white/80 text-sm">
               &copy; {currentYear} Praecellens Consultancy Ltd. All rights reserved.
             </p>
             <div className="flex gap-6 mt-4 md:mt-0">
-              <a href="#" className="text-gray-300 hover:text-white transition-colors text-sm">
+              <a href="#" className="text-white/80 hover:text-white transition-colors text-sm">
                 Privacy Policy
               </a>
-              <a href="#" className="text-gray-300 hover:text-white transition-colors text-sm">
+              <a href="#" className="text-white/80 hover:text-white transition-colors text-sm">
                 Terms of Service
               </a>
             </div>

@@ -185,7 +185,7 @@ export default function Home() {
       <section className="py-20 md:py-28 bg-primary text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Transform Your Vision?</h2>
-          <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+          <p className="text-xl text-white/90 mb-8 leading-relaxed">
             Let&apos;s collaborate to bring your engineering project to life with innovative solutions and expert execution.
           </p>
           <Link href="/contact" className="btn-primary">
