@@ -1,10 +1,12 @@
 'use client'
 
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const pathname = usePathname()
 
   const navLinks = [
     { name: 'Home', href: '/' },
@@ -13,6 +15,13 @@ export default function Header() {
     { name: 'Projects', href: '/projects' },
     { name: 'Contact', href: '/contact' },
   ]
+
+  const isActive = (href: string) => {
+    if (href === '/') {
+      return pathname === '/'
+    }
+    return pathname.startsWith(href)
+  }
 
   return (
     <header className="sticky top-0 z-50 bg-white shadow-md">
@@ -35,7 +44,7 @@ export default function Header() {
               <Link
                 key={link.name}
                 href={link.href}
-                className="nav-link"
+                className={`nav-link ${isActive(link.href) ? 'active' : ''}`}
               >
                 {link.name}
               </Link>
@@ -78,7 +87,11 @@ export default function Header() {
               <Link
                 key={link.name}
                 href={link.href}
-                className="block px-4 py-2 text-primary hover:bg-light rounded-lg transition-colors"
+                className={`block px-4 py-2 rounded-lg transition-colors ${
+                  isActive(link.href)
+                    ? 'bg-secondary text-white font-semibold'
+                    : 'text-primary hover:bg-light'
+                }`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 {link.name}

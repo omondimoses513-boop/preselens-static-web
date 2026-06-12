@@ -78,7 +78,7 @@ export default function Home() {
       id: 'nairobi-complex',
       title: 'Nairobi Commercial Complex',
       description: 'Multi-storey commercial building with integrated smart systems and sustainable design.',
-      image: '/images/project1.jpg',
+      image: '/images/building1.jpg',
       category: 'Commercial',
       year: '2023',
     },
@@ -86,7 +86,7 @@ export default function Home() {
       id: 'mombasa-plant',
       title: 'Mombasa Industrial Plant',
       description: 'Large-scale industrial facility with specialized electrical and mechanical systems.',
-      image: '/images/project2.jpg',
+      image: '/images/building2.jpg',
       category: 'Industrial',
       year: '2022',
     },
@@ -94,7 +94,7 @@ export default function Home() {
       id: 'solar-farm',
       title: 'Solar Farm Development',
       description: 'Renewable energy facility generating 2MW of clean electricity for the region.',
-      image: '/images/project3.jpg',
+      image: '/images/building3.jpg',
       category: 'Energy',
       year: '2023',
     },
@@ -109,6 +109,7 @@ export default function Home() {
         description="Delivering innovative engineering solutions for Kenya's infrastructure development"
         ctaText="Start Your Project"
         ctaHref="/contact"
+        backgroundImage="/images/hero-engineering.jpeg"
       />
 
       {/* Services Section */}

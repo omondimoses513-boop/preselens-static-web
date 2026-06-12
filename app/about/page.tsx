@@ -1,11 +1,12 @@
 import HeroSection from '@/components/HeroSection'
+import Image from 'next/image'
 
 export default function About() {
   const team = [
-    { name: 'John Mwangi', title: 'Chief Executive Officer', specialty: 'Civil Engineering' },
-    { name: 'Mary Kipchoge', title: 'Technical Director', specialty: 'Electrical Engineering' },
-    { name: 'Peter Ochieng', title: 'Operations Manager', specialty: 'Project Management' },
-    { name: 'Sarah Kimani', title: 'Senior Engineer', specialty: 'Mechanical Engineering' },
+    { name: 'John Mwangi', title: 'Chief Executive Officer', specialty: 'Civil Engineering', image: '/images/team1.jpeg' },
+    { name: 'Mary Kipchoge', title: 'Technical Director', specialty: 'Electrical Engineering', image: '/images/team2.jpeg' },
+    { name: 'Peter Ochieng', title: 'Operations Manager', specialty: 'Project Management', image: '/images/team3.jpeg' },
+    { name: 'Sarah Kimani', title: 'Senior Engineer', specialty: 'Mechanical Engineering', image: '/images/team4.jpeg' },
   ]
 
   return (
@@ -81,8 +82,13 @@ export default function About() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {team.map((member, idx) => (
               <div key={idx} className="text-center">
-                <div className="w-32 h-32 bg-gradient-to-br from-secondary to-primary rounded-full mx-auto mb-4 flex items-center justify-center text-4xl">
-                  👤
+                <div className="relative w-32 h-32 bg-gray-200 rounded-full mx-auto mb-4 overflow-hidden">
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
                 <h3 className="text-xl font-bold text-primary">{member.name}</h3>
                 <p className="text-secondary font-semibold mb-2">{member.title}</p>
