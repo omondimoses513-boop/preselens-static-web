@@ -187,10 +187,10 @@ export default function Services() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 md:py-28 bg-primary text-white">
+      <section className="py-20 md:py-28 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Need Engineering Solutions?</h2>
-          <p className="text-xl text-white/90 mb-8">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary">Need Engineering Solutions?</h2>
+          <p className="text-xl text-gray mb-8">
             Contact our team to discuss your project and explore how we can help.
           </p>
           <a href="/contact" className="btn-primary">
