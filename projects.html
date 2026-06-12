@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <!-- Same head content as index.html -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Projects | Praecellens Consultancy</title>
-    
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -16,248 +15,164 @@
                         primary: '#001F3F',
                         secondary: '#009FE3',
                         accent: '#0074D9',
-                        light: '#F5F5F5',
-                        dark: '#000000',
+                        light: '#F8F9FA',
+                        dark: '#1A1A1A',
                         gray: '#6D6D6D',
                     },
                     fontFamily: {
                         poppins: ['Poppins', 'sans-serif'],
                     },
                     animation: {
-                        'fade-in': 'fadeIn 0.5s ease-out',
-                        'slide-up': 'slideUp 0.6s ease-out',
-                        'slide-in': 'slideIn 0.7s ease-out',
+                        'fade-in': 'fadeIn 0.6s ease-out forwards',
+                        'slide-up': 'slideUp 0.6s ease-out forwards',
                     },
                     keyframes: {
-                        fadeIn: {
-                            '0%': { opacity: '0' },
-                            '100%': { opacity: '1' },
-                        },
-                        slideUp: {
-                            '0%': { transform: 'translateY(20px)', opacity: '0' },
-                            '100%': { transform: 'translateY(0)', opacity: '1' },
-                        },
-                        slideIn: {
-                            '0%': { transform: 'translateX(-20px)', opacity: '0' },
-                            '100%': { transform: 'translateX(0)', opacity: '1' },
-                        },
+                        fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+                        slideUp: { '0%': { transform: 'translateY(30px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } },
                     },
                 }
             }
         }
     </script>
-    
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <!-- Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap">
-    
+
     <style type="text/tailwindcss">
         @layer components {
             .btn-primary {
-                @apply inline-flex items-center justify-center bg-secondary text-white px-8 py-3 rounded-full font-semibold 
-                       transition-all duration-300 ease-out border-2 border-secondary shadow-lg hover:bg-transparent 
-                       hover:text-secondary hover:-translate-y-1 hover:shadow-xl focus:outline-none focus:ring-2 
-                       focus:ring-secondary focus:ring-opacity-50;
+                @apply inline-flex items-center justify-center bg-secondary text-white px-8 py-3 rounded-lg font-semibold
+                       transition-all duration-300 ease-out hover:bg-primary hover:-translate-y-1 hover:shadow-lg focus:outline-none;
             }
-            
             .btn-outline {
-                @apply inline-flex items-center justify-center bg-transparent text-secondary px-8 py-3 rounded-full 
-                       font-semibold transition-all duration-300 ease-out border-2 border-secondary shadow-lg 
-                       hover:bg-secondary hover:text-white hover:-translate-y-1 hover:shadow-xl focus:outline-none 
-                       focus:ring-2 focus:ring-secondary focus:ring-opacity-50;
+                @apply inline-flex items-center justify-center bg-transparent text-secondary px-8 py-3 rounded-lg
+                       font-semibold transition-all duration-300 ease-out border-2 border-secondary
+                       hover:bg-secondary hover:text-white hover:-translate-y-1 hover:shadow-lg focus:outline-none;
             }
-            
-            .section-title {
-                @apply text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8 relative;
-            }
-            
-            .section-title::after {
-                @apply content-[''] block w-20 h-1 bg-secondary mx-auto mt-6;
-            }
-            
-            .card-hover {
-                @apply transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-xl;
-            }
-            
+            .section-title { @apply text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-4; }
+            .card-hover { @apply transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-xl; }
             .nav-link {
-                @apply relative text-primary font-medium hover:text-secondary transition-colors duration-200 
-                       after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-0.5 
+                @apply relative text-primary font-medium hover:text-secondary transition-colors duration-200
+                       after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-0.5
                        after:bg-secondary after:transition-all after:duration-300 hover:after:w-full;
+            }
+
+            .nav-link.active {
+                @apply text-secondary after:w-full;
             }
         }
     </style>
 </head>
 <body class="font-poppins text-dark bg-white antialiased">
     <!-- Header -->
-    <header class="fixed w-full bg-white shadow-md z-50 transition-all duration-300 h-24">
-  <div class="container mx-auto px-6 h-full">
-    <div class="flex justify-between items-center h-full">
-      
-      <!-- Logo -->
-      <a href="index.html" class="logo flex items-center group">
-        <img src="images/logo.png" alt="Praecellens Logo" 
-     class="h-16 sm:h-20 md:h-24 lg:h-28 w-auto transition-all duration-300 group-hover:scale-105">
-
-        <span 
-          class="logo-text text-lg sm:text-xl md:text-2xl font-bold text-primary ml-2 sm:ml-4 group-hover:text-secondary transition-colors"
-        >
-          Praecellens<span class="text-secondary">.</span>
-        </span>
-      </a>
-
-      <!-- Mobile Menu Button -->
-      <button 
-        class="mobile-menu-btn md:hidden text-2xl text-primary ml-2 focus:outline-none" 
-        id="mobileMenuBtn" 
-        aria-label="Toggle menu"
-      >
-        <i class="fas fa-bars"></i>
-      </button>
-
-      <!-- Desktop Navigation -->
-      <nav class="hidden md:block" id="mainNav">
-        <ul class="flex space-x-8">
-          <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="about.html" class="nav-link">About</a></li>
-          <li><a href="services.html" class="nav-link">Services</a></li>
-          <li><a href="projects.html" class="nav-link">Projects</a></li>
-          <li><a href="contact.html" class="nav-link">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-
-  <!-- Mobile Navigation -->
-  <div 
-    class="mobile-nav hidden md:hidden absolute top-24 left-0 w-full bg-white shadow-lg py-4 px-6" 
-    id="mobileNav"
-  >
-    <ul class="space-y-4">
-      <li><a href="index.html" class="block py-2 text-primary hover:text-secondary transition-colors">Home</a></li>
-      <li><a href="about.html" class="block py-2 text-primary hover:text-secondary transition-colors">About</a></li>
-      <li><a href="services.html" class="block py-2 text-primary hover:text-secondary transition-colors">Services</a></li>
-      <li><a href="projects.html" class="block py-2 text-primary hover:text-secondary transition-colors">Projects</a></li>
-      <li><a href="contact.html" class="block py-2 text-primary hover:text-secondary transition-colors">Contact</a></li>
-    </ul>
-  </div>
-</header>
+    <div id="header-placeholder"></div>
 
     <!-- Projects Hero Section -->
-    <section class="relative h-96 flex items-center justify-center text-center text-white pt-24">
-        <div class="absolute inset-0 bg-gradient-to-b from-primary/80 to-primary/90"></div>
-        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('images/building1.jpg')"></div>
-        
+    <section class="relative h-[400px] flex items-center justify-center text-center text-white pt-20">
+        <div class="absolute inset-0 bg-black/90"></div>
+        <div class="absolute inset-0 bg-cover bg-center opacity-30" style="background-image: url('images/building1.jpg')"></div>
         <div class="container relative z-10 px-4">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 animate-fade-in">Our Projects</h1>
-            <p class="text-xl md:text-2xl max-w-2xl mx-auto animate-fade-in animation-delay-100">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 opacity-0 animate-slide-up">Our Projects</h1>
+            <p class="text-xl md:text-2xl max-w-2xl mx-auto opacity-0 animate-slide-up" style="animation-delay: 0.1s;">
                 Showcasing our engineering excellence and innovation
             </p>
         </div>
     </section>
 
     <!-- Projects Filter Section -->
-    <section class="py-12 bg-gray-50">
+    <section class="py-12 bg-light">
         <div class="container mx-auto px-4">
             <div class="flex flex-wrap justify-center gap-3">
-                <button class="filter-btn px-4 py-2 rounded-full border-2 border-secondary text-secondary font-medium hover:bg-secondary hover:text-white transition-colors active" data-filter="all">
-                    All Projects
-                </button>
-                <button class="filter-btn px-4 py-2 rounded-full border-2 border-secondary text-secondary font-medium hover:bg-secondary hover:text-white transition-colors" data-filter="commercial">
-                    Commercial
-                </button>
-                <button class="filter-btn px-4 py-2 rounded-full border-2 border-secondary text-secondary font-medium hover:bg-secondary hover:text-white transition-colors" data-filter="residential">
-                    Residential
-                </button>
-                <button class="filter-btn px-4 py-2 rounded-full border-2 border-secondary text-secondary font-medium hover:bg-secondary hover:text-white transition-colors" data-filter="industrial">
-                    Industrial
-                </button>
-                <button class="filter-btn px-4 py-2 rounded-full border-2 border-secondary text-secondary font-medium hover:bg-secondary hover:text-white transition-colors" data-filter="healthcare">
-                    Healthcare
-                </button>
+                <button class="filter-btn px-5 py-2 rounded-lg border-2 border-secondary text-secondary font-medium hover:bg-secondary hover:text-white transition-colors" data-filter="all">All Projects</button>
+                <button class="filter-btn px-5 py-2 rounded-lg border-2 border-secondary text-secondary font-medium hover:bg-secondary hover:text-white transition-colors" data-filter="commercial">Commercial</button>
+                <button class="filter-btn px-5 py-2 rounded-lg border-2 border-secondary text-secondary font-medium hover:bg-secondary hover:text-white transition-colors" data-filter="residential">Residential</button>
+                <button class="filter-btn px-5 py-2 rounded-lg border-2 border-secondary text-secondary font-medium hover:bg-secondary hover:text-white transition-colors" data-filter="industrial">Industrial</button>
+                <button class="filter-btn px-5 py-2 rounded-lg border-2 border-secondary text-secondary font-medium hover:bg-secondary hover:text-white transition-colors" data-filter="healthcare">Healthcare</button>
             </div>
         </div>
     </section>
 
     <!-- Projects Grid Section -->
-    <section class="py-20">
+    <section class="py-24 bg-white">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Project 1 -->
-                <div class="project-card rounded-xl overflow-hidden relative group animate-slide-up" data-category="commercial">
-                    <img src="images/building2.jpg" alt="Nairobi Commercial Complex" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                <div class="project-card rounded-xl overflow-hidden relative group opacity-0 animate-slide-up" style="animation-delay: 0.1s;" data-category="commercial">
+                    <img src="images/building2.jpg" alt="Nairobi Commercial Complex" class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                         <h3 class="text-white text-xl font-bold mb-2">Nairobi Commercial Complex</h3>
                         <p class="text-white/90 mb-4">Full electrical and mechanical design for a 20-story office tower</p>
                         <a href="projects-single.html?id=nairobi-commercial" class="btn-outline btn-sm self-start">
-    View Project <i class="fas fa-arrow-right ml-2"></i>
+                            View Project <i class="fas fa-arrow-right ml-2"></i>
                         </a>
                     </div>
                 </div>
-                
+
                 <!-- Project 2 -->
-                <div class="project-card rounded-xl overflow-hidden relative group animate-slide-up animation-delay-100" data-category="industrial">
-                    <img src="images/building2.jpg" alt="Mombasa Industrial Plant" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                <div class="project-card rounded-xl overflow-hidden relative group opacity-0 animate-slide-up" style="animation-delay: 0.2s;" data-category="industrial">
+                    <img src="images/building2.jpg" alt="Mombasa Industrial Plant" class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                         <h3 class="text-white text-xl font-bold mb-2">Mombasa Industrial Plant</h3>
                         <p class="text-white/90 mb-4">Energy efficiency upgrade for manufacturing facility</p>
                         <a href="projects-single.html?id=mombasa-industrial" class="btn-outline btn-sm self-start">
-    View Project <i class="fas fa-arrow-right ml-2"></i>
-</a>
+                            View Project <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
                     </div>
                 </div>
-                
+
                 <!-- Project 3 -->
-                <div class="project-card rounded-xl overflow-hidden relative group animate-slide-up animation-delay-150" data-category="residential">
-                    <img src="images/building2.jpg" alt="Karen Residential Estate" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                <div class="project-card rounded-xl overflow-hidden relative group opacity-0 animate-slide-up" style="animation-delay: 0.3s;" data-category="residential">
+                    <img src="images/building2.jpg" alt="Karen Residential Estate" class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                         <h3 class="text-white text-xl font-bold mb-2">Karen Residential Estate</h3>
                         <p class="text-white/90 mb-4">Sustainable energy solutions for luxury homes</p>
                         <a href="projects-single.html?id=karen-residential" class="btn-outline btn-sm self-start">
-    View Project <i class="fas fa-arrow-right ml-2"></i>
-</a>
+                            View Project <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
                     </div>
                 </div>
-                
+
                 <!-- Project 4 -->
-                <div class="project-card rounded-xl overflow-hidden relative group animate-slide-up animation-delay-200" data-category="healthcare">
-                    <img src="images/building3.jpg" alt="Nairobi Hospital" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                <div class="project-card rounded-xl overflow-hidden relative group opacity-0 animate-slide-up" style="animation-delay: 0.4s;" data-category="healthcare">
+                    <img src="images/building3.jpg" alt="Nairobi Hospital" class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                         <h3 class="text-white text-xl font-bold mb-2">Nairobi Hospital</h3>
                         <p class="text-white/90 mb-4">HVAC and electrical systems upgrade</p>
                         <a href="projects-single.html?id=nairobi-hospital" class="btn-outline btn-sm self-start">
-    View Project <i class="fas fa-arrow-right ml-2"></i>
-</a>s
+                            View Project <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
                     </div>
                 </div>
-                
+
                 <!-- Project 5 -->
-                <div class="project-card rounded-xl overflow-hidden relative group animate-slide-up animation-delay-250" data-category="commercial">
-                    <img src="images/building1.jpg" alt="Westgate Mall" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                <div class="project-card rounded-xl overflow-hidden relative group opacity-0 animate-slide-up" style="animation-delay: 0.5s;" data-category="commercial">
+                    <img src="images/building1.jpg" alt="Westgate Mall" class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                         <h3 class="text-white text-xl font-bold mb-2">Westgate Mall</h3>
                         <p class="text-white/90 mb-4">Mechanical systems design and implementation</p>
                         <a href="projects-single.html?id=westgate-mall" class="btn-outline btn-sm self-start">
-    View Project <i class="fas fa-arrow-right ml-2"></i>
-</a>
+                            View Project <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
                     </div>
                 </div>
-                
+
                 <!-- Project 6 -->
-                <div class="project-card rounded-xl overflow-hidden relative group animate-slide-up animation-delay-300" data-category="industrial">
-                    <img src="images/building1.jpg" alt="Thika Power Plant" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                <div class="project-card rounded-xl overflow-hidden relative group opacity-0 animate-slide-up" style="animation-delay: 0.6s;" data-category="industrial">
+                    <img src="images/building1.jpg" alt="Thika Power Plant" class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                         <h3 class="text-white text-xl font-bold mb-2">Thika Power Plant</h3>
                         <p class="text-white/90 mb-4">Electrical infrastructure and control systems</p>
                         <a href="projects-single.html?id=thika-power-plant" class="btn-outline btn-sm self-start">
-    View Project <i class="fas fa-arrow-right ml-2"></i>
-</a>
+                            View Project <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
                     </div>
                 </div>
             </div>
-            
-            <div class="text-center mt-12 animate-fade-in">
+
+            <div class="text-center mt-12 opacity-0 animate-fade-in" style="animation-delay: 0.7s;">
                 <a href="contact.html" class="btn-primary">
                     Start Your Project <i class="fas fa-arrow-right ml-2"></i>
                 </a>
@@ -266,22 +181,18 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section class="py-20 bg-gray-50">
+    <section class="py-24 bg-light">
         <div class="container mx-auto px-4">
-            <h2 class="section-title animate-slide-in">Client Testimonials</h2>
-            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-12 text-lg animate-slide-in animation-delay-100">
+            <h2 class="section-title opacity-0 animate-slide-up">Client Testimonials</h2>
+            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-12 text-lg opacity-0 animate-slide-up" style="animation-delay: 0.1s;">
                 What our clients say about working with us
             </p>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Testimonial 1 -->
-                <div class="bg-white p-8 rounded-xl shadow-md card-hover animate-slide-up animation-delay-150">
+                <div class="bg-white p-8 rounded-xl shadow-lg card-hover opacity-0 animate-slide-up" style="animation-delay: 0.2s;">
                     <div class="text-yellow-400 mb-4">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
                     <p class="text-gray-600 italic mb-6">
                         "Praecellens delivered exceptional electrical systems for our commercial complex. Their attention to detail and technical expertise were impressive throughout the project."
@@ -294,15 +205,11 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Testimonial 2 -->
-                <div class="bg-white p-8 rounded-xl shadow-md card-hover animate-slide-up animation-delay-200">
+                <div class="bg-white p-8 rounded-xl shadow-lg card-hover opacity-0 animate-slide-up" style="animation-delay: 0.3s;">
                     <div class="text-yellow-400 mb-4">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
                     <p class="text-gray-600 italic mb-6">
                         "The mechanical systems designed by Praecellens have significantly improved our plant's efficiency. Their team was professional and met all deadlines."
@@ -315,15 +222,11 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Testimonial 3 -->
-                <div class="bg-white p-8 rounded-xl shadow-md card-hover animate-slide-up animation-delay-250">
+                <div class="bg-white p-8 rounded-xl shadow-lg card-hover opacity-0 animate-slide-up" style="animation-delay: 0.4s;">
                     <div class="text-yellow-400 mb-4">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
                     <p class="text-gray-600 italic mb-6">
                         "We've worked with Praecellens on multiple projects and they consistently deliver high-quality engineering solutions. Their energy efficiency expertise saved us 30% on power costs."
@@ -341,103 +244,70 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="py-20 bg-primary text-white">
+    <section class="py-24 bg-primary text-white">
         <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6 animate-slide-up">Have a Project in Mind?</h2>
-            <p class="text-xl max-w-3xl mx-auto mb-8 animate-slide-up animation-delay-100">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 opacity-0 animate-slide-up">Have a Project in Mind?</h2>
+            <p class="text-xl text-white/80 max-w-3xl mx-auto mb-8 opacity-0 animate-slide-up" style="animation-delay: 0.1s;">
                 Let's discuss how we can help bring your vision to life with our engineering expertise.
             </p>
-            <a href="contact.html" class="btn-primary bg-white text-primary hover:bg-transparent hover:text-white border-white animate-slide-up animation-delay-200">
+            <a href="contact.html" class="btn-primary bg-white text-primary hover:bg-transparent hover:text-white border-white opacity-0 animate-slide-up" style="animation-delay: 0.2s;">
                 Contact Us Today <i class="fas fa-arrow-right ml-2"></i>
             </a>
         </div>
     </section>
 
-        <!-- Footer -->
-    <footer class="bg-dark text-white pt-20 pb-10">
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-16 pb-8">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
-                <!-- About -->
                 <div>
                     <div class="flex items-center mb-6">
-                        <img src="images/logo.png" alt="Praecellens Logo" class="h-12 mr-4">
-                        <span class="text-2xl font-bold">Praecellens<span class="text-secondary">.</span></span>
+                        <img src="images/logo.png" alt="Praecellens Logo" class="h-10 mr-3">
+                        <span class="text-xl font-bold">Praecellens<span class="text-secondary">.</span></span>
                     </div>
-                    <p class="text-white/80 mb-6">
-                        Pioneering sustainable infrastructure across Kenya through innovative engineering solutions.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="social-icon bg-white/10 hover:bg-secondary w-10 h-10 rounded-full flex items-center justify-center transition-colors">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="#" class="social-icon bg-white/10 hover:bg-secondary w-10 h-10 rounded-full flex items-center justify-center transition-colors">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="social-icon bg-white/10 hover:bg-secondary w-10 h-10 rounded-full flex items-center justify-center transition-colors">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="social-icon bg-white/10 hover:bg-secondary w-10 h-10 rounded-full flex items-center justify-center transition-colors">
-                            <i class="fab fa-instagram"></i>
-                        </a>
+                    <p class="text-white/70 mb-6">Pioneering sustainable infrastructure across Kenya through innovative engineering solutions.</p>
+                    <div class="flex space-x-3">
+                        <a href="#" class="social-icon bg-white/10 hover:bg-secondary w-9 h-9 rounded-full flex items-center justify-center"><i class="fab fa-linkedin-in text-sm"></i></a>
+                        <a href="#" class="social-icon bg-white/10 hover:bg-secondary w-9 h-9 rounded-full flex items-center justify-center"><i class="fab fa-twitter text-sm"></i></a>
+                        <a href="#" class="social-icon bg-white/10 hover:bg-secondary w-9 h-9 rounded-full flex items-center justify-center"><i class="fab fa-facebook-f text-sm"></i></a>
+                        <a href="#" class="social-icon bg-white/10 hover:bg-secondary w-9 h-9 rounded-full flex items-center justify-center"><i class="fab fa-instagram text-sm"></i></a>
                     </div>
                 </div>
-                
-                <!-- Quick Links -->
                 <div>
-                    <h3 class="text-xl font-bold mb-6 relative pb-2 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-10 after:h-0.5 after:bg-secondary">
-                        Quick Links
-                    </h3>
+                    <h3 class="text-lg font-bold mb-5">Quick Links</h3>
                     <ul class="space-y-3">
-                        <li><a href="index.html" class="text-white/80 hover:text-secondary transition-colors">Home</a></li>
-                        <li><a href="about.html" class="text-white/80 hover:text-secondary transition-colors">About Us</a></li>
-                        <li><a href="services.html" class="text-white/80 hover:text-secondary transition-colors">Our Services</a></li>
-                        <li><a href="projects.html" class="text-white/80 hover:text-secondary transition-colors">Projects</a></li>
-                        <li><a href="contact.html" class="text-white/80 hover:text-secondary transition-colors">Contact</a></li>
+                        <li><a href="index.html" class="text-white/70 hover:text-secondary">Home</a></li>
+                        <li><a href="about.html" class="text-white/70 hover:text-secondary">About Us</a></li>
+                        <li><a href="services.html" class="text-white/70 hover:text-secondary">Our Services</a></li>
+                        <li><a href="projects.html" class="text-white/70 hover:text-secondary">Projects</a></li>
+                        <li><a href="contact.html" class="text-white/70 hover:text-secondary">Contact</a></li>
                     </ul>
                 </div>
-                
-                <!-- Services -->
                 <div>
-                    <h3 class="text-xl font-bold mb-6 relative pb-2 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-10 after:h-0.5 after:bg-secondary">
-                        Services
-                    </h3>
+                    <h3 class="text-lg font-bold mb-5">Services</h3>
                     <ul class="space-y-3">
-                        <li><a href="services.html#electrical" class="text-white/80 hover:text-secondary transition-colors">Electrical Engineering</a></li>
-                        <li><a href="services.html#mechanical" class="text-white/80 hover:text-secondary transition-colors">Mechanical Engineering</a></li>
-                        <li><a href="services.html#energy" class="text-white/80 hover:text-secondary transition-colors">Energy Solutions</a></li>
-                        <li><a href="services.html" class="text-white/80 hover:text-secondary transition-colors">Consultancy</a></li>
+                        <li><a href="services.html#electrical" class="text-white/70 hover:text-secondary">Electrical Engineering</a></li>
+                        <li><a href="services.html#mechanical" class="text-white/70 hover:text-secondary">Mechanical Engineering</a></li>
+                        <li><a href="services.html#energy" class="text-white/70 hover:text-secondary">Energy Solutions</a></li>
+                        <li><a href="services.html" class="text-white/70 hover:text-secondary">Consultancy</a></li>
                     </ul>
                 </div>
-                
-                <!-- Contact Info -->
                 <div>
-                    <h3 class="text-xl font-bold mb-6 relative pb-2 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-10 after:h-0.5 after:bg-secondary">
-                        Contact Info
-                    </h3>
+                    <h3 class="text-lg font-bold mb-5">Contact Info</h3>
                     <ul class="space-y-4">
-                        <li class="flex items-start">
-                            <i class="fas fa-map-marker-alt text-secondary mr-4 mt-1"></i>
-                            <span class="text-white/80">Nairobi, Kenya</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-phone-alt text-secondary mr-4 mt-1"></i>
-                            <span class="text-white/80">+254 705 046 110</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-envelope text-secondary mr-4 mt-1"></i>
-                            <span class="text-white/80">info@praecellens.com</span>
-                        </li>
+                        <li class="flex items-start"><i class="fas fa-map-marker-alt text-secondary mr-3 mt-1"></i><span class="text-white/70">Nairobi, Kenya</span></li>
+                        <li class="flex items-start"><i class="fas fa-phone-alt text-secondary mr-3 mt-1"></i><span class="text-white/70">+254 705 046 110</span></li>
+                        <li class="flex items-start"><i class="fas fa-envelope text-secondary mr-3 mt-1"></i><span class="text-white/70">info@praecellens.com</span></li>
                     </ul>
                 </div>
             </div>
-            
-            <div class="border-t border-white/10 pt-8 text-center text-white/60">
+            <div class="border-t border-white/10 pt-8 text-center text-white/50">
                 <p>&copy; 2025 Praecellens Consultancy Ltd. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script src="index.js">
-    </script>
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js"></script>
 </body>
 </html>
