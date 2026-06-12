@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Praecellens Consultancy</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#001F3F',
+                        secondary: '#009FE3',
+                        accent: '#0074D9',
+                        light: '#F5F5F5',
+                        dark: '#000000',
+                        gray: '#6D6D6D',
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-out forwards',
+                        'slide-up': 'slideUp 0.6s ease-out forwards',
+                        'slide-in': 'slideIn 0.7s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        slideIn: {
+                            '0%': { transform: 'translateX(-20px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        },
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap">
+    
+    <style>
+        @layer components {
+            .btn-primary {
+                @apply inline-flex items-center justify-center bg-secondary text-white px-8 py-3 rounded-lg font-semibold 
+                       transition-all duration-300 ease-out border-2 border-secondary shadow-lg hover:bg-transparent 
+                       hover:text-secondary hover:-translate-y-1 hover:shadow-xl focus:outline-none focus:ring-2 
+                       focus:ring-secondary focus:ring-opacity-50;
+            }
+            
+            .btn-outline {
+                @apply inline-flex items-center justify-center bg-transparent text-secondary px-8 py-3 rounded-lg 
+                       font-semibold transition-all duration-300 ease-out border-2 border-secondary shadow-lg 
+                       hover:bg-secondary hover:text-white hover:-translate-y-1 hover:shadow-xl focus:outline-none 
+                       focus:ring-2 focus:ring-secondary focus:ring-opacity-50;
+            }
+            
+            .section-title {
+                @apply text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8 relative;
+            }
+            
+            .section-title::after {
+                @apply content-[''] block w-20 h-1 bg-secondary mx-auto mt-6;
+            }
+            
+            .card-hover {
+                @apply transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-xl;
+            }
+            
+            .nav-link {
+                @apply relative text-primary font-medium hover:text-secondary transition-colors duration-200
+                       after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-0.5
+                       after:bg-secondary after:transition-all after:duration-300 hover:after:w-full;
+            }
+
+            .nav-link.active {
+                @apply text-secondary after:w-full;
+            }
+            
+            .form-input {
+                @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 
+                       focus:ring-secondary focus:border-transparent transition-all duration-200;
+            }
+            
+            .animation-delay-100 {
+                animation-delay: 100ms;
+            }
+
+            .animation-delay-200 {
+                animation-delay: 200ms;
+            }
+
+            .animation-delay-300 {
+                animation-delay: 300ms;
+            }
+
+            .animation-delay-400 {
+                animation-delay: 400ms;
+            }
+
+            .animation-delay-500 {
+                animation-delay: 500ms;
+            }
+        }
+        
+        /* Ensure animations work */
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+        
+        .animate-slide-up {
+            animation: slideUp 0.6s ease-out forwards;
+        }
+        
+        .animate-slide-in {
+            animation: slideIn 0.7s ease-out forwards;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #009FE3;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0074D9;
+        }
+    </style>
+</head>
+<body class="font-poppins text-dark bg-white antialiased">
+    <div id="header-placeholder"></div>
+
+    <!-- Contact Hero Section -->
+    <section class="relative h-[500px] flex items-center justify-center text-center text-white pt-24">
+        <div class="absolute inset-0 bg-black/90"></div>
+        <div class="absolute inset-0 bg-cover bg-center opacity-20" style="background-image: url('images/blog7.jpg')"></div>
+        
+        <div class="container relative z-10 px-4">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 animate-fade-in">Let's Build Together</h1>
+            <p class="text-xl md:text-2xl max-w-2xl mx-auto animate-fade-in animation-delay-100">
+                Connect with our engineering experts to bring your vision to life
+            </p>
+            <div class="mt-8 animate-fade-in animation-delay-200">
+                <a href="#contact-form" class="btn-primary inline-flex items-center">
+                    Get Started <i class="fas fa-chevron-down ml-2"></i>
+                </a>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-0 left-0 right-0 h-16 bg-white"></div>
+    </section>
+
+    <!-- Contact Cards Section -->
+    <section class="py-16 bg-light">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title animate-slide-up">How Can We Help You?</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                <!-- Consultation Card -->
+                <div class="bg-white p-8 rounded-xl shadow-md card-hover animate-slide-up animation-delay-100">
+                    <div class="text-secondary text-4xl mb-4">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Project Consultation</h3>
+                    <p class="text-gray-600 mb-4">Get expert advice on your engineering projects from concept to completion.</p>
+                    <a href="#contact-form" class="text-secondary font-semibold flex items-center">
+                        Request Consultation <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Support Card -->
+                <div class="bg-white p-8 rounded-xl shadow-md card-hover animate-slide-up animation-delay-200">
+                    <div class="text-secondary text-4xl mb-4">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Technical Support</h3>
+                    <p class="text-gray-600 mb-4">24/7 support for all your engineering queries and technical challenges.</p>
+                    <a href="#contact-form" class="text-secondary font-semibold flex items-center">
+                        Get Support <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Partnership Card -->
+                <div class="bg-white p-8 rounded-xl shadow-md card-hover animate-slide-up animation-delay-300">
+                    <div class="text-secondary text-4xl mb-4">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Partnerships</h3>
+                    <p class="text-gray-600 mb-4">Explore collaboration opportunities with our engineering team.</p>
+                    <a href="#contact-form" class="text-secondary font-semibold flex items-center">
+                        Partner With Us <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Clean Contact Section -->
+<section class="py-20 bg-white" id="contact-form">
+    <div class="container mx-auto px-4">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4 relative">
+                Get In Touch
+                <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-secondary"></span>
+            </h2>
+            <p class="text-lg text-gray-600">
+                Have a project in mind? Our engineering team is ready to discuss your requirements and provide expert solutions.
+            </p>
+        </div>
+        
+        <div class="flex flex-col lg:flex-row gap-8">
+            <!-- Contact Info Card -->
+            <div class="lg:w-1/2">
+                <div class="bg-gray-50 p-8 rounded-xl border border-gray-200 h-full">
+                    <div class="space-y-8">
+                        <!-- Contact Info Item -->
+                        <div class="flex items-start">
+                            <div class="bg-secondary/10 p-3 rounded-lg mr-4">
+                                <i class="fas fa-map-marker-alt text-secondary text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-primary mb-2">Our Location</h3>
+                                <p class="text-gray-600">Nairobi, Kenya</p>
+                                <a href="#map" class="text-secondary font-medium text-sm mt-2 inline-flex items-center">
+                                    View on map <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Contact Info Item -->
+                        <div class="flex items-start">
+                            <div class="bg-secondary/10 p-3 rounded-lg mr-4">
+                                <i class="fas fa-envelope text-secondary text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-primary mb-2">Email Us</h3>
+                                <p class="text-gray-600">info@praecellens.com</p>
+                                <p class="text-gray-600">sales@praecellens.com</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Contact Info Item -->
+                        <div class="flex items-start">
+                            <div class="bg-secondary/10 p-3 rounded-lg mr-4">
+                                <i class="fas fa-phone-alt text-secondary text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-primary mb-2">Call Us</h3>
+                                <p class="text-gray-600">+254 705 046 110</p>
+                                <p class="text-gray-600">+254 720 123 456</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Business Hours -->
+                        <div class="pt-6 border-t border-gray-200">
+                            <h3 class="text-xl font-semibold text-primary mb-4">Business Hours</h3>
+                            <ul class="space-y-3 text-gray-600">
+                                <li class="flex justify-between items-center py-2 border-b border-gray-100">
+                                    <span class="flex items-center">
+                                        <i class="fas fa-clock text-secondary/80 mr-2 text-sm"></i>
+                                        Monday - Friday
+                                    </span>
+                                    <span class="font-medium">8:00 AM - 5:00 PM</span>
+                                </li>
+                                <li class="flex justify-between items-center py-2 border-b border-gray-100">
+                                    <span class="flex items-center">
+                                        <i class="fas fa-clock text-secondary/80 mr-2 text-sm"></i>
+                                        Saturday
+                                    </span>
+                                    <span class="font-medium">9:00 AM - 1:00 PM</span>
+                                </li>
+                                <li class="flex justify-between items-center py-2">
+                                    <span class="flex items-center">
+                                        <i class="fas fa-clock text-secondary/80 mr-2 text-sm"></i>
+                                        Sunday
+                                    </span>
+                                    <span class="font-medium">Closed</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact Form Card -->
+            <div class="lg:w-1/2">
+                <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-200">
+                    <form id="contactForm" class="space-y-6">
+                        <!-- Name and Email -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-gray-700 font-medium mb-2">
+                                    Your Name <span class="text-secondary">*</span>
+                                </label>
+                                <div class="relative">
+                                    <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent pl-10" required placeholder="John Doe">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-user text-gray-400"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="block text-gray-700 font-medium mb-2">
+                                    Email <span class="text-secondary">*</span>
+                                </label>
+                                <div class="relative">
+                                    <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent pl-10" required placeholder="john@example.com">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-envelope text-gray-400"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Phone and Subject -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="phone" class="block text-gray-700 font-medium mb-2">Phone</label>
+                                <div class="relative">
+                                    <input type="tel" id="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent pl-10" placeholder="+254 700 123456">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-phone-alt text-gray-400"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label for="subject" class="block text-gray-700 font-medium mb-2">
+                                    Subject <span class="text-secondary">*</span>
+                                </label>
+                                <div class="relative">
+                                    <select id="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent appearance-none pl-10 pr-8" required>
+                                        <option value="" disabled selected>Select Subject</option>
+                                        <option>Electrical Engineering</option>
+                                        <option>Mechanical Engineering</option>
+                                        <option>Energy Solutions</option>
+                                        <option>General Inquiry</option>
+                                        <option>Career Opportunity</option>
+                                    </select>
+                                    <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-chevron-down text-gray-400"></i>
+                                    </div>
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i class="fas fa-tag text-gray-400"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Message -->
+                        <div>
+                            <label for="message" class="block text-gray-700 font-medium mb-2">
+                                Message <span class="text-secondary">*</span>
+                            </label>
+                            <div class="relative">
+                                <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent pl-10" required placeholder="Tell us about your project..."></textarea>
+                                <div class="absolute top-3 left-3">
+                                    <i class="fas fa-comment-dots text-gray-400"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="w-full bg-secondary hover:bg-secondary/90 text-white font-bold py-3 px-6 rounded-lg transition duration-300 flex items-center justify-center">
+                            <span class="mr-2">Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+
+                        <p class="text-sm text-gray-500 text-center">
+                            <span class="text-secondary">*</span> Required fields. We'll respond within 24 hours.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Team Section -->
+    <section class="py-20 bg-light">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title animate-slide-up">Our Leadership Team</h2>
+            <p class="text-lg text-gray-600 text-center max-w-3xl mx-auto mb-12 animate-slide-up animation-delay-100">
+                Meet the experts who will be handling your project
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Team Member 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-md text-center card-hover animate-slide-up animation-delay-200">
+                    <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-secondary">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Team Member" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-1">James Kariuki</h3>
+                    <p class="text-secondary font-medium mb-3">Chief Engineer</p>
+                    <p class="text-gray-600 text-sm mb-4">15+ years experience in electrical engineering solutions</p>
+                    <a href="#contact-form" class="text-secondary text-sm font-medium">
+                        Contact James <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+                
+                <!-- Team Member 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-md text-center card-hover animate-slide-up animation-delay-300">
+                    <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-secondary">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Team Member" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-1">Sarah Mwangi</h3>
+                    <p class="text-secondary font-medium mb-3">Mechanical Director</p>
+                    <p class="text-gray-600 text-sm mb-4">Specialist in industrial mechanical systems</p>
+                    <a href="#contact-form" class="text-secondary text-sm font-medium">
+                        Contact Sarah <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+                
+                <!-- Team Member 3 -->
+                <div class="bg-white p-6 rounded-xl shadow-md text-center card-hover animate-slide-up animation-delay-400">
+                    <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-secondary">
+                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Team Member" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-1">David Omondi</h3>
+                    <p class="text-secondary font-medium mb-3">Energy Solutions Lead</p>
+                    <p class="text-gray-600 text-sm mb-4">Renewable energy and sustainability expert</p>
+                    <a href="#contact-form" class="text-secondary text-sm font-medium">
+                        Contact David <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+                
+                <!-- Team Member 4 -->
+                <div class="bg-white p-6 rounded-xl shadow-md text-center card-hover animate-slide-up animation-delay-500">
+                    <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-secondary">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Team Member" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-1">Grace Atieno</h3>
+                    <p class="text-secondary font-medium mb-3">Project Manager</p>
+                    <p class="text-gray-600 text-sm mb-4">Ensuring your project runs smoothly from start to finish</p>
+                    <a href="#contact-form" class="text-secondary text-sm font-medium">
+                        Contact Grace <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="py-20" id="map">
+        <div class="container mx-auto px-4">
+            <div class="rounded-xl overflow-hidden shadow-xl border border-gray-200">
+                <div class="h-96 w-full bg-gray-100 flex items-center justify-center">
+                    <div class="text-center p-8">
+                        <div class="text-5xl text-secondary mb-4">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-primary mb-2">Our Nairobi Headquarters</h3>
+                        <p class="text-gray-600 mb-4">Visit us at our office for a face-to-face consultation</p>
+                        <a href="https://maps.google.com" target="_blank" class="btn-outline inline-flex items-center">
+                            Open in Maps <i class="fas fa-external-link-alt ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Clean CTA Section -->
+<section class="py-20 bg-primary text-white">
+    <!-- Container with subtle grid pattern -->
+    <div class="container mx-auto px-4 relative">
+        <div class="absolute inset-0 opacity-5 bg-grid-white/10"></div>
+        
+        <div class="relative z-10 max-w-3xl mx-auto text-center">
+            <!-- Heading with accent underline -->
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 animate-slide-up">
+                Ready to <span class="relative pb-1">Elevate
+                    <span class="absolute bottom-0 left-0 w-full h-1 bg-accent animate-underline-expand"></span>
+                </span> Your Project?
+            </h2>
+            
+            <!-- Supporting text -->
+            <p class="text-xl text-white/90 mb-10 max-w-2xl mx-auto animate-fade-in animation-delay-100">
+                Partner with our engineering experts to bring your vision to life with precision and innovation.
+            </p>
+            
+            <!-- Action buttons -->
+            <div class="flex flex-col sm:flex-row justify-center gap-4 animate-slide-up animation-delay-200">
+                <!-- Primary CTA -->
+                <a href="contact.html" class="relative group inline-flex items-center justify-center px-8 py-4 bg-white text-primary rounded-lg font-bold overflow-hidden transition-all duration-300 hover:bg-primary hover:text-white shadow-lg hover:shadow-xl">
+                    <span class="relative z-10 flex items-center">
+                        <i class="fas fa-paper-plane mr-3"></i> Get Started
+                    </span>
+                    <span class="absolute inset-0 bg-accent opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
+                </a>
+                
+                <!-- Secondary CTA -->
+                <a href="tel:+254705046110" class="relative group inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white rounded-lg font-bold overflow-hidden transition-all duration-300 hover:bg-white hover:text-primary shadow-md hover:shadow-lg">
+                    <span class="relative z-10 flex items-center">
+                        <i class="fas fa-phone-alt mr-3"></i> Call Now
+                    </span>
+                    <span class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
+                </a>
+            </div>
+            
+            <!-- Trust badges -->
+            <div class="mt-12 flex flex-wrap justify-center items-center gap-6 text-white/80 animate-fade-in animation-delay-300">
+                <div class="flex items-center bg-white/10 px-4 py-2 rounded-full backdrop-blur-sm">
+                    <i class="fas fa-check-circle text-accent mr-2"></i>
+                    <span>Certified Engineers</span>
+                </div>
+                <div class="flex items-center bg-white/10 px-4 py-2 rounded-full backdrop-blur-sm">
+                    <i class="fas fa-check-circle text-accent mr-2"></i>
+                    <span>15+ Years Experience</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Background grid pattern */
+    .bg-grid-white\/10 {
+        background-image: 
+            linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px);
+        background-size: 40px 40px;
+    }
+    
+    /* Underline animation */
+    @keyframes underline-expand {
+        0% { transform: scaleX(0); }
+        100% { transform: scaleX(1); }
+    }
+    .animate-underline-expand {
+        animation: underline-expand 0.8s ease-out forwards;
+    }
+</style>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-20 pb-10">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                <!-- About -->
+                <div>
+                    <div class="flex items-center mb-6">
+                        <img src="images/logo.png" alt="Praecellens Logo" class="h-12 mr-4">
+                        <span class="text-2xl font-bold">Praecellens<span class="text-secondary">.</span></span>
+                    </div>
+                    <p class="text-white/80 mb-6">
+                        Pioneering sustainable infrastructure across Kenya through innovative engineering solutions.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="social-icon bg-white/10 hover:bg-secondary w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-icon bg-white/10 hover:bg-secondary w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon bg-white/10 hover:bg-secondary w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon bg-white/10 hover:bg-secondary w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6 relative pb-2 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-10 after:h-0.5 after:bg-secondary">
+                        Quick Links
+                    </h3>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-white/80 hover:text-secondary transition-colors">Home</a></li>
+                        <li><a href="about.html" class="text-white/80 hover:text-secondary transition-colors">About Us</a></li>
+                        <li><a href="services.html" class="text-white/80 hover:text-secondary transition-colors">Our Services</a></li>
+                        <li><a href="projects.html" class="text-white/80 hover:text-secondary transition-colors">Projects</a></li>
+                        <li><a href="contact.html" class="text-white/80 hover:text-secondary transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6 relative pb-2 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-10 after:h-0.5 after:bg-secondary">
+                        Services
+                    </h3>
+                    <ul class="space-y-3">
+                        <li><a href="services.html#electrical" class="text-white/80 hover:text-secondary transition-colors">Electrical Engineering</a></li>
+                        <li><a href="services.html#mechanical" class="text-white/80 hover:text-secondary transition-colors">Mechanical Engineering</a></li>
+                        <li><a href="services.html#energy" class="text-white/80 hover:text-secondary transition-colors">Energy Solutions</a></li>
+                        <li><a href="services.html" class="text-white/80 hover:text-secondary transition-colors">Consultancy</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6 relative pb-2 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-10 after:h-0.5 after:bg-secondary">
+                        Contact Info
+                    </h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-secondary mr-4 mt-1"></i>
+                            <span class="text-white/80">Nairobi, Kenya</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt text-secondary mr-4 mt-1"></i>
+                            <span class="text-white/80">+254 705 046 110</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope text-secondary mr-4 mt-1"></i>
+                            <span class="text-white/80">info@praecellens.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-8 text-center text-white/60">
+                <p>&copy; 2025 Praecellens Consultancy Ltd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <link rel="stylesheet" href="style.css">
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('mobileNav').classList.toggle('hidden');
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show success message
+            const form = this;
+            const originalButtonText = form.querySelector('button[type="submit"]').innerHTML;
+            
+            form.querySelector('button[type="submit"]').innerHTML = `
+                <span class="flex items-center justify-center">
+                    <i class="fas fa-spinner fa-spin mr-2"></i> Sending...
+                </span>
+            `;
+            
+            // Simulate form submission
+            setTimeout(() => {
+                form.querySelector('button[type="submit"]').innerHTML = `
+                    <span class="flex items-center justify-center">
+                        <i class="fas fa-check mr-2"></i> Message Sent!
+                    </span>
+                `;
+                
+                // Reset form after 2 seconds
+                setTimeout(() => {
+                    form.reset();
+                    form.querySelector('button[type="submit"]').innerHTML = originalButtonText;
+                }, 2000);
+            }, 1500);
+        });
+    </script>
+</body>
+</html>

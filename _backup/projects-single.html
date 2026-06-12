@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details | Praecellens Consultancy</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#001F3F',
+                        secondary: '#009FE3',
+                        accent: '#0074D9',
+                        light: '#F5F5F5',
+                        dark: '#000000',
+                        gray: '#6D6D6D',
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-out',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'slide-in': 'slideIn 0.7s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        slideIn: {
+                            '0%': { transform: 'translateX(-20px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        },
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap">
+    
+    <style type="text/tailwindcss">
+        @layer components {
+            .btn-primary {
+                @apply inline-flex items-center justify-center bg-secondary text-white px-8 py-3 rounded-full font-semibold 
+                       transition-all duration-300 ease-out border-2 border-secondary shadow-lg hover:bg-transparent 
+                       hover:text-secondary hover:-translate-y-1 hover:shadow-xl focus:outline-none focus:ring-2 
+                       focus:ring-secondary focus:ring-opacity-50;
+            }
+            
+            .btn-outline {
+                @apply inline-flex items-center justify-center bg-transparent text-secondary px-8 py-3 rounded-full 
+                       font-semibold transition-all duration-300 ease-out border-2 border-secondary shadow-lg 
+                       hover:bg-secondary hover:text-white hover:-translate-y-1 hover:shadow-xl focus:outline-none 
+                       focus:ring-2 focus:ring-secondary focus:ring-opacity-50;
+            }
+            
+            .section-title {
+                @apply text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8 relative;
+            }
+            
+            .section-title::after {
+                @apply content-[''] block w-20 h-1 bg-secondary mx-auto mt-6;
+            }
+            
+            .card-hover {
+                @apply transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-xl;
+            }
+            
+            .nav-link {
+                @apply relative text-primary font-medium hover:text-secondary transition-colors duration-200
+                       after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-0.5
+                       after:bg-secondary after:transition-all after:duration-300 hover:after:w-full;
+            }
+
+            .nav-link.active {
+                @apply text-secondary after:w-full;
+            }
+
+            .project-gallery {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            
+            .project-gallery img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 0.75rem;
+                transition: transform 0.3s ease;
+            }
+            
+            .project-gallery img:hover {
+                transform: scale(1.03);
+            }
+
+            .animation-delay-100 {
+                animation-delay: 100ms;
+            }
+
+            .animation-delay-200 {
+                animation-delay: 200ms;
+            }
+        }
+
+        /* Animation utilities */
+        .animate-slide-up {
+            animation: slideUp 0.6s ease-out forwards;
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        .opacity-0 {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body class="font-poppins text-dark bg-white antialiased">
+    <!-- Header -->
+    <div id="header-placeholder"></div>
+
+    <!-- Project Details Section -->
+    <section class="pt-40 pb-20">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <!-- Project Title and Category -->
+                <div class="mb-12 text-center">
+                    <span class="inline-block bg-secondary/10 text-secondary px-4 py-2 rounded-full text-sm font-medium mb-4" id="project-category">
+                        Commercial
+                    </span>
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6" id="project-title">Project Title</h1>
+                    <div class="w-20 h-1 bg-secondary mx-auto"></div>
+                </div>
+                
+                <!-- Project Gallery -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                    <div class="col-span-1">
+                        <img src="images/building1.jpg" alt="Project Main Image" class="w-full h-auto rounded-xl shadow-lg" id="project-main-image">
+                    </div>
+                    <div class="col-span-1 grid grid-cols-2 gap-4">
+                        <img src="images/building2.jpg" alt="Project Image 1" class="w-full h-48 object-cover rounded-xl shadow-lg">
+                        <img src="images/building3.jpg" alt="Project Image 2" class="w-full h-48 object-cover rounded-xl shadow-lg">
+                        <img src="images/building1.jpg" alt="Project Image 3" class="w-full h-48 object-cover rounded-xl shadow-lg">
+                        <img src="images/building2.jpg" alt="Project Image 4" class="w-full h-48 object-cover rounded-xl shadow-lg">
+                    </div>
+                </div>
+                
+                <!-- Project Details -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                    <div class="lg:col-span-2">
+                        <h2 class="text-2xl font-bold mb-6">Project Overview</h2>
+                        <div class="prose max-w-none" id="project-description">
+                            <p>Detailed project description will appear here. This will include all the relevant information about the project, the challenges faced, and the solutions we provided.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor.</p>
+                            <p>Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor posuere.</p>
+                        </div>
+                        
+                        <div class="mt-12">
+                            <h2 class="text-2xl font-bold mb-6">Key Features</h2>
+                            <ul class="space-y-4" id="project-features">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-secondary mr-3 mt-1"></i>
+                                    <span>Feature description goes here</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-secondary mr-3 mt-1"></i>
+                                    <span>Another important feature</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="lg:col-span-1">
+                        <div class="bg-gray-50 p-8 rounded-xl shadow-sm">
+                            <h3 class="text-xl font-bold mb-6">Project Details</h3>
+                            <ul class="space-y-5">
+                                <li>
+                                    <h4 class="font-medium text-gray-600">Client</h4>
+                                    <p class="font-semibold" id="project-client">Client Name</p>
+                                </li>
+                                <li>
+                                    <h4 class="font-medium text-gray-600">Location</h4>
+                                    <p class="font-semibold" id="project-location">Nairobi, Kenya</p>
+                                </li>
+                                <li>
+                                    <h4 class="font-medium text-gray-600">Year Completed</h4>
+                                    <p class="font-semibold" id="project-year">2023</p>
+                                </li>
+                                <li>
+                                    <h4 class="font-medium text-gray-600">Services</h4>
+                                    <p class="font-semibold" id="project-services">Electrical Design, Mechanical Engineering</p>
+                                </li>
+                                <li>
+                                    <h4 class="font-medium text-gray-600">Project Size</h4>
+                                    <p class="font-semibold" id="project-size">20,000 sq ft</p>
+                                </li>
+                            </ul>
+                            
+                            <a href="contact.html" class="btn-primary w-full mt-8 text-center">
+                                Start Your Project <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Projects -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title">Related Projects</h2>
+            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-12 text-lg">
+                Explore more of our work in this category
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="related-projects">
+                <!-- Related projects will be dynamically inserted here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-20 pb-10">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                <!-- About -->
+                <div>
+                    <div class="flex items-center mb-6">
+                        <img src="images/logo.png" alt="Praecellens Logo" class="h-12 mr-4">
+                        <span class="text-2xl font-bold">Praecellens<span class="text-secondary">.</span></span>
+                    </div>
+                    <p class="text-white/80 mb-6">
+                        Pioneering sustainable infrastructure across Kenya through innovative engineering solutions.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="social-icon bg-white/10 hover:bg-secondary w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-icon bg-white/10 hover:bg-secondary w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon bg-white/10 hover:bg-secondary w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon bg-white/10 hover:bg-secondary w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6 relative pb-2 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-10 after:h-0.5 after:bg-secondary">
+                        Quick Links
+                    </h3>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-white/80 hover:text-secondary transition-colors">Home</a></li>
+                        <li><a href="about.html" class="text-white/80 hover:text-secondary transition-colors">About Us</a></li>
+                        <li><a href="services.html" class="text-white/80 hover:text-secondary transition-colors">Our Services</a></li>
+                        <li><a href="projects.html" class="text-white/80 hover:text-secondary transition-colors">Projects</a></li>
+                        <li><a href="contact.html" class="text-white/80 hover:text-secondary transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6 relative pb-2 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-10 after:h-0.5 after:bg-secondary">
+                        Services
+                    </h3>
+                    <ul class="space-y-3">
+                        <li><a href="services.html#electrical" class="text-white/80 hover:text-secondary transition-colors">Electrical Engineering</a></li>
+                        <li><a href="services.html#mechanical" class="text-white/80 hover:text-secondary transition-colors">Mechanical Engineering</a></li>
+                        <li><a href="services.html#energy" class="text-white/80 hover:text-secondary transition-colors">Energy Solutions</a></li>
+                        <li><a href="services.html" class="text-white/80 hover:text-secondary transition-colors">Consultancy</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6 relative pb-2 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-10 after:h-0.5 after:bg-secondary">
+                        Contact Info
+                    </h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-secondary mr-4 mt-1"></i>
+                            <span class="text-white/80">Nairobi, Kenya</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt text-secondary mr-4 mt-1"></i>
+                            <span class="text-white/80">+254 705 046 110</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope text-secondary mr-4 mt-1"></i>
+                            <span class="text-white/80">info@praecellens.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-8 text-center text-white/60">
+                <p>&copy; 2025 Praecellens Consultancy Ltd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <link rel="stylesheet" href="style.css">
+    <script>
+        // Project Data
+        const projects = {
+            'nairobi-commercial': {
+                title: 'Nairobi Commercial Complex',
+                category: 'Commercial',
+                description: '<p>Full electrical and mechanical design for a 20-story office tower in Nairobi\'s central business district. Our team implemented cutting-edge energy-efficient solutions that reduced the building\'s power consumption by 35% compared to conventional designs.</p><p>The project included comprehensive lighting design, HVAC systems, fire protection, and smart building automation systems. We collaborated closely with the architects to ensure all mechanical and electrical systems were seamlessly integrated into the building design.</p>',
+                features: [
+                    '20-story Class A office tower',
+                    '35% energy savings compared to conventional designs',
+                    'Integrated smart building automation',
+                    'LEED Gold certification targeted',
+                    '24/7 monitoring systems'
+                ],
+                client: 'Acme Developments',
+                location: 'Nairobi CBD, Kenya',
+                year: '2023',
+                services: 'Electrical Design, Mechanical Engineering, Energy Solutions',
+                size: '450,000 sq ft',
+                image: 'images/building1.jpg'
+            },
+            'mombasa-industrial': {
+                title: 'Mombasa Industrial Plant',
+                category: 'Industrial',
+                description: '<p>Energy efficiency upgrade for a major manufacturing facility in Mombasa. The project involved retrofitting existing systems with modern, energy-efficient alternatives while maintaining continuous plant operations.</p><p>We implemented variable frequency drives for motors, high-efficiency lighting, and waste heat recovery systems. The upgrades resulted in a 28% reduction in energy costs and improved production line reliability.</p>',
+                features: [
+                    '28% reduction in energy costs',
+                    'Waste heat recovery system',
+                    'Variable frequency drives installation',
+                    'Production line reliability improvements',
+                    'Minimal downtime during implementation'
+                ],
+                client: 'Kenya Foods Ltd',
+                location: 'Mombasa, Kenya',
+                year: '2022',
+                services: 'Energy Audit, Mechanical Retrofitting, Electrical Upgrades',
+                size: '150,000 sq ft',
+                image: 'images/building2.jpg'
+            },
+            'karen-residential': {
+                title: 'Karen Residential Estate',
+                category: 'Residential',
+                description: '<p>Sustainable energy solutions for a luxury residential development in Karen. The project included solar power systems, rainwater harvesting, and smart home automation for 25 high-end villas.</p><p>Our design focused on minimizing environmental impact while maximizing resident comfort. Each villa features integrated renewable energy systems that provide 80% of the household\'s energy needs.</p>',
+                features: [
+                    'Solar power systems for each villa',
+                    '80% energy needs met by renewables',
+                    'Smart home automation',
+                    'Rainwater harvesting system',
+                    'Energy monitoring dashboards'
+                ],
+                client: 'Urban Properties',
+                location: 'Karen, Nairobi',
+                year: '2024',
+                services: 'Renewable Energy Systems, Smart Home Design',
+                size: '25 villas (3,500 sq ft average)',
+                image: 'images/building3.jpg'
+            },
+            'nairobi-hospital': {
+                title: 'Nairobi Hospital Upgrade',
+                category: 'Healthcare',
+                description: '<p>Comprehensive HVAC and electrical systems upgrade for Nairobi Hospital. The project involved modernizing critical systems while maintaining 24/7 hospital operations with zero downtime.</p><p>We implemented redundant systems for critical care areas, energy-efficient HVAC with advanced filtration for infection control, and emergency power systems that can sustain full operations for 72 hours.</p>',
+                features: [
+                    'Zero downtime during implementation',
+                    'Redundant systems for critical care',
+                    'Advanced HVAC filtration systems',
+                    '72-hour emergency power capacity',
+                    'Energy savings of 25% annually'
+                ],
+                client: 'Nairobi Hospital Board',
+                location: 'Nairobi, Kenya',
+                year: '2023',
+                services: 'HVAC Design, Electrical Systems, Emergency Power',
+                size: '1.2 million sq ft',
+                image: 'images/building1.jpg'
+            },
+            'westgate-mall': {
+                title: 'Westgate Mall Systems',
+                category: 'Commercial',
+                description: '<p>Mechanical systems design and implementation for Westgate Shopping Mall. Our team designed and oversaw installation of all HVAC, plumbing, and fire protection systems for this premier retail destination.</p><p>The design prioritized energy efficiency, visitor comfort, and safety, with special attention to the food court and cinema areas which have unique mechanical requirements.</p>',
+                features: [
+                    'Energy-efficient HVAC design',
+                    'Specialized cinema ventilation',
+                    'Food court exhaust systems',
+                    'Smart water management',
+                    'Integrated fire protection'
+                ],
+                client: 'Westgate Development Ltd',
+                location: 'Westlands, Nairobi',
+                year: '2022',
+                services: 'Mechanical Engineering, HVAC Design',
+                size: '280,000 sq ft',
+                image: 'images/building3.jpg'
+            },
+            'thika-power-plant': {
+                title: 'Thika Power Plant',
+                category: 'Industrial',
+                description: '<p>Electrical infrastructure and control systems for the Thika Power Plant. This project involved designing and implementing the complete electrical distribution system for a 150MW power generation facility.</p><p>Our solutions included high-voltage switchgear, transformer systems, plant-wide distribution, and advanced control systems for efficient power management and grid synchronization.</p>',
+                features: [
+                    '150MW generation capacity',
+                    'High-voltage switchgear systems',
+                    'Advanced control and monitoring',
+                    'Grid synchronization systems',
+                    'Redundant safety systems'
+                ],
+                client: 'Kenya Power & Lighting',
+                location: 'Thika, Kenya',
+                year: '2021',
+                services: 'Electrical Engineering, Control Systems',
+                size: '50-acre facility',
+                image: 'images/blog1.jpg'
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get project ID from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const projectId = urlParams.get('id');
+            
+            // Default project if no ID specified
+            const defaultProject = 'nairobi-commercial';
+            
+            // Get the project data
+            const project = projects[projectId] || projects[defaultProject];
+            
+            // Populate the page with project data
+            document.getElementById('project-title').textContent = project.title;
+            document.getElementById('project-category').textContent = project.category;
+            document.getElementById('project-description').innerHTML = project.description;
+            
+            const featuresList = document.getElementById('project-features');
+            featuresList.innerHTML = '';
+            project.features.forEach(feature => {
+                const li = document.createElement('li');
+                li.className = 'flex items-start';
+                li.innerHTML = `<i class="fas fa-check-circle text-secondary mr-3 mt-1"></i><span>${feature}</span>`;
+                featuresList.appendChild(li);
+            });
+            
+            document.getElementById('project-client').textContent = project.client;
+            document.getElementById('project-location').textContent = project.location;
+            document.getElementById('project-year').textContent = project.year;
+            document.getElementById('project-services').textContent = project.services;
+            document.getElementById('project-size').textContent = project.size;
+            document.getElementById('project-main-image').src = project.image;
+            document.getElementById('project-main-image').alt = project.title;
+            
+            // Show related projects
+            const relatedProjectsContainer = document.getElementById('related-projects');
+            if (relatedProjectsContainer) {
+                // Filter projects by the same category (excluding current project)
+                const relatedProjects = Object.values(projects).filter(
+                    p => p.category === project.category && p.title !== project.title
+                ).slice(0, 3); // Get max 3 related projects
+                
+                // Display related projects
+                relatedProjects.forEach(related => {
+                    const projectCard = document.createElement('div');
+                    projectCard.className = 'project-card rounded-xl overflow-hidden relative group';
+                    projectCard.innerHTML = `
+                        <img src="${related.image}" alt="${related.title}" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-primary opacity-0 group-hover:opacity-90 transition-opacity duration-300 flex flex-col justify-end p-6">
+                            <h3 class="text-white text-xl font-bold mb-2">${related.title}</h3>
+                            <p class="text-white/90 mb-4">${related.description.substring(0, 100)}...</p>
+                            <a href="projects-single.html?id=${Object.keys(projects).find(key => projects[key].title === related.title)}" class="btn-outline btn-sm self-start">
+                                View Project <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    `;
+                    relatedProjectsContainer.appendChild(projectCard);
+                });
+            }
+            
+            // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileNav = document.getElementById('mobileNav');
+            
+            if (mobileMenuBtn && mobileNav) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    mobileNav.classList.toggle('hidden');
+                    this.innerHTML = mobileNav.classList.contains('hidden') ? 
+                        '<i class="fas fa-bars"></i>' : '<i class="fas fa-times"></i>';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
